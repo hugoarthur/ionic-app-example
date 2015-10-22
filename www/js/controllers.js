@@ -9,6 +9,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  $scope.title = "i9";
+
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -54,6 +56,14 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
+
+.controller('SignupCtrl', function($scope, $stateParams) {
+    $scope.newUser = {};
+    $scope.doSignup = function() {
+        console.log($scope.newUser.username+" LOading....");
+    };
+})
+
 .controller('MinhaLocalizacaoController', function($scope, $ionicSideMenuDelegate, geolocation, $http, $location) {
     console.log('MinhaLocalizacaoController');
 
