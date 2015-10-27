@@ -6,18 +6,12 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', 
   [
-    'ionic',
-    'ionic.service.core',
+    'ionic','ionic.service.core',
     'starter.controllers',
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
     'uiGmapgoogle-maps',
     'geolocation'
-])
+]
+)
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -45,11 +39,12 @@ angular.module('starter',
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.signup', {
+    url: '/signup',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/signup.html',
+        controller: 'SignupCtrl'
       }
     }
   })
@@ -81,17 +76,17 @@ angular.module('starter',
       }
     }
   })
-  .state('app.mapa', {
-      url: '/mapa',
+  .state('app.map', {
+      url: '/map',
       views: {
         'menuContent': {
-          templateUrl: 'templates/mapa.html',
+          templateUrl: 'templates/map.html',
           controller: 'MinhaLocalizacaoController'
         }
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/signup');
 })
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

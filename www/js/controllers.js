@@ -9,6 +9,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  $scope.title = "i9";
+
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -54,6 +56,14 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
+
+.controller('SignupCtrl', function($scope, $stateParams) {
+    $scope.newUser = {};
+    $scope.doSignup = function() {
+        console.log($scope.newUser.username+" LOading....");
+    };
+})
+
 .controller('MinhaLocalizacaoController', function($scope, $ionicSideMenuDelegate, geolocation, $http, $location) {
     console.log('MinhaLocalizacaoController');
 
@@ -122,4 +132,30 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
             }
         });
     });
+})
+.controller('DashCtrl', function($scope) {
+  
+  var deploy = new Ionic.Deploy();
+  
+  // Update app code with new release from Ionic Deploy
+  $scope.doUpdate = function() {
+    deploy.update().then(function(res) {
+      console.log('Ionic Deploy: Update Success! ', res);
+    }, function(err) {
+      console.log('Ionic Deploy: Update error! ', err);
+    }, function(prog) {
+      console.log('Ionic Deploy: Progress... ', prog);
+    });
+  };
+
+  // Check Ionic Deploy for new code
+  $scope.checkForUpdates = function() {
+    console.log('Ionic Deploy: Checking for updates');
+    deploy.check().then(function(hasUpdate) {
+      console.log('Ionic Deploy: Update available: ' + hasUpdate);
+      $scope.hasUpdate = hasUpdate;
+    }, function(err) {
+      console.error('Ionic Deploy: Unable to check for updates', err);
+    });
+  }
 });
