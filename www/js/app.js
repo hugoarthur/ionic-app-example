@@ -6,18 +6,12 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', 
   [
-    'ionic',
-    'ionic.service.core',
+    'ionic','ionic.service.core',
     'starter.controllers',
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch',
     'uiGmapgoogle-maps',
     'geolocation'
-])
+]
+)
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
